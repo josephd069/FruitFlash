@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import "tailwindcss";
+
+@keyframes flicker {
+  0%, 100% { opacity: 1 }
+  50%      { opacity: 0.92 }
+}
+
+@keyframes belt-scroll {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}
+.animate-belt {
+  animation-name: belt-scroll;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 1px,
+    rgba(0,0,0,.28) 2px,
+    rgba(0,0,0,.28) 3px
+  );
+}
+
+.sprite {
+  image-rendering: pixelated;
+}
+
+.pixel-btn-bg {
+  background-image: repeating-linear-gradient(
+    0deg,
+    #fafafa 0px,
+    #fafafa 1px,
+    #675b5b 2px,
+    #726c6c 3px
+  );
+}
+
+html, body, #root {
+  font-family: 'Pixelify Sans', monospace;           /* Tailwind utility */
+  
+}
+
+@keyframes pixel-confetti {
+  0%   { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* 40 tiny 4×4 pixel squares */
+.animate-confetti::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, #f87171 0 5px, transparent 5px 8px),
+    repeating-linear-gradient(#60a5fa 0 5px, transparent 5px 8px),
+    repeating-linear-gradient(#facc15 0 5px, transparent 5px 8px),
+    repeating-linear-gradient(#4ade80 0 5px, transparent 5px 8px);
+  background-size: 8px 8px;
+  animation: pixel-confetti 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes pixel-bounce {
+  0%, 100% { transform: translateY(0);    }
+  50%      { transform: translateY(-5px); }   /* height of the hop */
+}
+
+/* Respect “reduced motion” settings */
+@media (prefers-reduced-motion: no-preference) {
+  .bounce-letter {
+    display: inline-block;               /* lets each letter move individually */
+    animation: pixel-bounce 0.9s infinite ease-in-out;
+  }
+}
+
+@keyframes rainbow-glow {
+  0%   { box-shadow: 0 0 0 5px #ff3c00, 0 0 12px 5px #ff0000; }
+  10%  { box-shadow: 0 0 0 5px #ff7f00, 0 0 12px 5px #ff7f00; }
+  20%  { box-shadow: 0 0 0 5px #ffff00, 0 0 12px 5px #ffff00; }
+  30%  { box-shadow: 0 0 0 5px #00ff00, 0 0 12px 5px #00ff00; }
+  40%  { box-shadow: 0 0 0 5px #00ffee, 0 0 12px 5px #0000ff; }
+  50% { box-shadow: 0 0 0 5px #0080ff, 0 0 12px 5px #4b0082; }
+  60%  { box-shadow: 0 0 0 5px #1100ff, 0 0 12px 5px #0000ff; }
+  70%  { box-shadow: 0 0 0 5px #4800ff, 0 0 12px 5px #00ff00; }
+  80%  { box-shadow: 0 0 0 5px #ff00fb, 0 0 12px 5px #ffff00; }
+  90%  { box-shadow: 0 0 0 5px #ff0051, 0 0 12px 5px #ff7f00; }
+  100%   { box-shadow: 0 0 0 5px #ff0000, 0 0 12px 5px #ff0000; }
+
+}
+
+.rainbow {
+  animation: rainbow-glow 4.8s linear infinite;
+}
+
+.good{
+  box-shadow: 0 0 0 5px #00ff00, 0 0 12px 5px #00ff00; 
+}
+
+.bad {
+  box-shadow: 0 0 0 5px #ff0000, 0 0 12px 5px #ff0000; 
+}
