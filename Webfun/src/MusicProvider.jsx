@@ -51,7 +51,7 @@ export function MusicProvider({ children }) {
   ----------------------------------------------------------------*/
   useEffect(() => {
     const path     = location.pathname;
-    const inGame   = path.startsWith('/play');
+    const inGame   = path.startsWith('/FruitFlash/play');
     const bossNow  = inGame && level >= FINAL_LEVEL;
 
     if (bossNow) {
