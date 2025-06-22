@@ -51,7 +51,7 @@ export function MusicProvider({ children }) {
   ----------------------------------------------------------------*/
   useEffect(() => {
     const path     = location.pathname;
-    const inGame   = path.startsWith('/FruitFlash/play');
+    const inGame   = path.startsWith('/play');
     const bossNow  = inGame && level >= FINAL_LEVEL;
 
     if (bossNow) {
@@ -62,8 +62,8 @@ export function MusicProvider({ children }) {
         /* ---- MENU or NORMAL GAME ---- */
         safePause(audioBoss);    // ensure boss stops
         const wantedSrc = inGame
-        ? '/audio/game-music2.ogg'
-        : '/audio/menu-music.mp3';
+          ? import.meta.env.BASE_URL + "audio/game-music2.ogg"
+          : import.meta.env.BASE_URL + "audio/menu-music.mp3";
 
         if (audioMain.current?.src.endsWith(wantedSrc) === false) {
             audioMain.current.src = wantedSrc;
@@ -86,8 +86,10 @@ export function MusicProvider({ children }) {
   return (
     <MusicCtx.Provider value={{ muted, setMuted, playJingle }}>
       <audio ref={audioMain} loop autoPlay />
-      <audio ref={audioBoss} src="/audio/boss-music.mp3" loop />
-      <audio ref={jingleRef} src="/audio/victory.mp3" />   {/* NEW */}
+      <audio ref={audioBoss}
+       src={import.meta.env.BASE_URL + "audio/boss-music.mp3"} loop />
+      <audio ref={jingleRef}
+       src={import.meta.env.BASE_URL + "audio/victory.mp3"} />
       {children}
       <SoundToggle />
     </MusicCtx.Provider>
