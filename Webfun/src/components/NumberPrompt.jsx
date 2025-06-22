@@ -43,7 +43,7 @@ export default function NumberPrompt() {
     <>
       {/* full-screen dark backdrop */}
       <motion.div
-        className="absolute inset-0 bg-black pointer-events-none z-20"
+        className="absolute w-screen h-screen -mt-10 bg-black pointer-events-none z-40"
         initial={{ opacity: 0 }}
         animate={overlay}
       />
@@ -52,8 +52,8 @@ export default function NumberPrompt() {
       <motion.div
         initial={{ scale: 10, top: '17.5rem' }}
         animate={controls}
-        className="absolute left-1/2 -translate-x-1/2 z-30
-                   font-pixel text-white text-9xl drop-shadow select-none"
+        className="absolute left-1/2 -translate-x-1/2 z-50
+                   font-pixel text-yellow-200 text-9xl drop-shadow select-none"
         style={{ pointerEvents: 'none' }}
       >
         {state.targetCount}
