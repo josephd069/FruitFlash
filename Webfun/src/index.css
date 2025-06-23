@@ -88,12 +88,12 @@ html, body, #root {
   10%  { box-shadow: 0 0 0 5px #ff7f00, 0 0 12px 5px #ff7f00; }
   20%  { box-shadow: 0 0 0 5px #ffff00, 0 0 12px 5px #ffff00; }
   30%  { box-shadow: 0 0 0 5px #00ff00, 0 0 12px 5px #00ff00; }
-  40%  { box-shadow: 0 0 0 5px #00ffee, 0 0 12px 5px #0000ff; }
-  50% { box-shadow: 0 0 0 5px #0080ff, 0 0 12px 5px #4b0082; }
-  60%  { box-shadow: 0 0 0 5px #1100ff, 0 0 12px 5px #0000ff; }
-  70%  { box-shadow: 0 0 0 5px #4800ff, 0 0 12px 5px #00ff00; }
-  80%  { box-shadow: 0 0 0 5px #ff00fb, 0 0 12px 5px #ffff00; }
-  90%  { box-shadow: 0 0 0 5px #ff0051, 0 0 12px 5px #ff7f00; }
+  40%  { box-shadow: 0 0 0 5px #00ffee, 0 0 12px 5px #00ffee; }
+  50% { box-shadow: 0 0 0 5px #0080ff, 0 0 12px 5px #0080ff; }
+  60%  { box-shadow: 0 0 0 5px #1100ff, 0 0 12px 5px #1100ff; }
+  70%  { box-shadow: 0 0 0 5px #4800ff, 0 0 12px 5px #4800ff; }
+  80%  { box-shadow: 0 0 0 5px #ff00fb, 0 0 12px 5px #ff00fb; }
+  90%  { box-shadow: 0 0 0 5px #ff0051, 0 0 12px 5px #ff0051; }
   100%   { box-shadow: 0 0 0 5px #ff0000, 0 0 12px 5px #ff0000; }
 
 }

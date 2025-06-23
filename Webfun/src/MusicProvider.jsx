@@ -62,8 +62,8 @@ export function MusicProvider({ children }) {
         /* ---- MENU or NORMAL GAME ---- */
         safePause(audioBoss);    // ensure boss stops
         const wantedSrc = inGame
-          ? import.meta.env.BASE_URL + "audio/game-music2.ogg"
-          : import.meta.env.BASE_URL + "audio/menu-music.mp3";
+          ? import.meta.env.BASE_URL + 'audio/game-music2.ogg'
+          : import.meta.env.BASE_URL + 'audio/menu-music.mp3';
 
         if (audioMain.current?.src.endsWith(wantedSrc) === false) {
             audioMain.current.src = wantedSrc;
@@ -87,9 +87,9 @@ export function MusicProvider({ children }) {
     <MusicCtx.Provider value={{ muted, setMuted, playJingle }}>
       <audio ref={audioMain} loop autoPlay />
       <audio ref={audioBoss}
-       src={import.meta.env.BASE_URL + "audio/boss-music.mp3"} loop />
+       src={import.meta.env.BASE_URL + 'audio/boss-music.mp3'} loop />
       <audio ref={jingleRef}
-       src={import.meta.env.BASE_URL + "audio/victory.mp3"} />
+       src={import.meta.env.BASE_URL + 'audio/victory.mp3'} />
       {children}
       <SoundToggle />
     </MusicCtx.Provider>
