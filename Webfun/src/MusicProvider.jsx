@@ -11,10 +11,10 @@ import {
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
 } from '@heroicons/react/24/solid';
-import menuMusic   from "../assets/audio/menu-music.mp3";
-import gameMusic   from "../assets/audio/game-music2.ogg";
-import bossMusic   from "../assets/audio/boss-music.mp3";
-import victorySfx  from "../assets/audio/victory.mp3";
+import menuMusic   from "/assets/audio/menu-music.mp3";
+import gameMusic   from "/assets/audio/game-music2.ogg";
+import bossMusic   from "/assets/audio/boss-music.mp3";
+import victorySfx  from "/assets/audio/victory.mp3";
 
 /* --------------------------------------------------------------
    CONTEXT
