@@ -5,16 +5,13 @@ import { shuffle, fruitPool } from '../utils/levelGenerator.js';
 
 export default function OptionsGrid({ onSelect }) {
   const { state } = useGame();
-  const { fruits, level } = state;          // fruits = [{name,count}, …]
+  const { fruits, level } = state;         
 
-  /* ------------------------------------------------------------------
-     Build the button list only when fruits OR level actually change.
-     This avoids reshuffling every 1 s while the question timer ticks. */
   const options = useMemo(() => {
     /* real answers, one per shown fruit kind */
     const baseNames = fruits.map(f => f.name);
 
-    /* +1 decoy every 3 levels (Lv1-3 → 0, Lv4-6 → 1, Lv7-9 → 2, …) */
+    /* +1 decoy every 3 levels */
     const extra = Math.min(
       Math.floor((level - 1) / 3),
       fruitPool.length - baseNames.length

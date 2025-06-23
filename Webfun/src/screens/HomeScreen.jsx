@@ -1,4 +1,3 @@
-// src/screens/HomeScreen.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HowToModal from '../components/HowToModal.jsx';
@@ -20,7 +19,7 @@ export default function HomeScreen() {
                       motion-safe:animate-[flicker_12s_infinite]">
       </div>
 
-      {/* central bezel panel */}
+      {/* central panel */}
       <div className="relative z-10  border-4 border-yellow-400
                       px-30 py-32 rounded-lg text-center">
         <h1 className="text-5xl sm:text-7xl mb-12 leading-none

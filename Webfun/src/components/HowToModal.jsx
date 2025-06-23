@@ -1,5 +1,4 @@
-/* src/components/HowToModal.jsx */
-import { motion } from 'framer-motion';          // or '@motionone/react'
+import { motion } from 'framer-motion';          
 
 export default function HowToModal({ onClose }) {
   return (

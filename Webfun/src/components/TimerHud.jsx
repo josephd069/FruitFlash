@@ -10,12 +10,11 @@ export default function TimerHud({ totalSeconds }) {
       <circle cx={24} cy={24} r={radius}
               stroke="#444" strokeWidth="4" fill="none" />
 
-      {/* foreground ring drains smoothly */}
+      {/* ring drains smoothly */}
       <motion.circle
         cx={24} cy={24} r={radius}
         stroke="#ffff00" strokeWidth="4" fill="none"
         strokeDasharray={circum}
-        /* start full → end empty */
         initial={{ strokeDashoffset: 0 }}
         animate={{ strokeDashoffset: circum }}
         transition={{ duration: totalSeconds, ease: 'linear' }}

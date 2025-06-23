@@ -27,23 +27,15 @@ export default function GameScreen() {
   const [isCorrect, setIsCorrect] = useState(null);   // null | true | false
 
     /* per-question countdown */
-  const questionSeconds = 7;          // visible on HUD
+  const questionSeconds = 7;         
   const [timer, setTimer] = useState(questionSeconds);
 
-  /* ─── start first level on mount ───────────────────────────── */
   useEffect(() => {startLevel(level);}, []);
 
   function startLevel(levelNum) {
     const { fruits, target } = generateLevel(levelNum);
     dispatch({ type: 'START_LEVEL', fruits, target });
   }
-
-  /* ─── auto-switch from 'show' → 'question' ────────────────── 
-  useEffect(() => {
-    if (phase !== 'show') return;
-    const id = setTimeout(() => dispatch({ type:'SET_PHASE', phase:'question' }), 8000);
-    return () => clearTimeout(id);
-  }, [phase, dispatch]);*/
 
   function handleShowComplete() {
   dispatch({ type: 'SET_PHASE', phase: 'question' });
@@ -68,7 +60,7 @@ export default function GameScreen() {
     return () => clearInterval(id);   // cleanup if answered early
   }, [phase, fruits]);
 
-  /* ─── handle clicks from OptionsGrid ───────────────────────── */
+  //handle clicks from OptionsGrid 
   function handleAnswer(pickedName) {
     if (phase !== 'question') return;
 
@@ -98,8 +90,6 @@ export default function GameScreen() {
 
     const isLast = level >= 10;
 
-
-  /* ─── UI ───────────────────────────────────────────────────── */
   return (
     
     <div className="w-full max-w-xl mt-10 flex flex-col items-center relative">

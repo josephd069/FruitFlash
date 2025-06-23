@@ -1,4 +1,3 @@
-// src/components/NumberPrompt.jsx
 import { motion, useAnimationControls } from 'framer-motion';
 import { useEffect } from 'react';
 import { useGame } from '../GameProvider.jsx';
@@ -14,14 +13,14 @@ export default function NumberPrompt() {
       /* A ▸ DARKEN screen & pop-in number */
       overlay.set({ opacity: 0.75 });
       await Promise.all([
-        overlay.start({ opacity: 0.75 }),         // immediate
+        overlay.start({ opacity: 0.75 }),       
         controls.start({
           scale: 5,
           transition: { duration: 0.0 }
         })
       ]);
 
-      /* B ▸ Wait a beat, then fade overlay + shrink/slide number */
+      /* fade overlay + shrink/slide number */
       await new Promise(r => setTimeout(r, 250)); // brief pause
 
       await Promise.all([

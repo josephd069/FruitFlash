@@ -46,7 +46,7 @@ body::before {
 }
 
 html, body, #root {
-  font-family: 'Pixelify Sans', monospace;           /* Tailwind utility */
+  font-family: 'Pixelify Sans', monospace;          
   
 }
 
@@ -55,7 +55,6 @@ html, body, #root {
   100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 
-/* 40 tiny 4×4 pixel squares */
 .animate-confetti::before {
   content: '';
   position: absolute;
@@ -72,13 +71,12 @@ html, body, #root {
 
 @keyframes pixel-bounce {
   0%, 100% { transform: translateY(0);    }
-  50%      { transform: translateY(-5px); }   /* height of the hop */
+  50%      { transform: translateY(-5px); }   
 }
 
-/* Respect “reduced motion” settings */
 @media (prefers-reduced-motion: no-preference) {
   .bounce-letter {
-    display: inline-block;               /* lets each letter move individually */
+    display: inline-block;               
     animation: pixel-bounce 0.9s infinite ease-in-out;
   }
 }

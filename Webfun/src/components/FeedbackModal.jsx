@@ -1,4 +1,3 @@
-// src/components/FeedbackModal.jsx
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { emojiMap } from '../utils/emojiMap.js';
@@ -15,14 +14,14 @@ export default function FeedbackModal({
   /* victory if player answered correctly AND it's the final level */
   const clearedGame = success && isLastLevel;
 
-  const { playJingle } = useMusic();              // NEW
+  const { playJingle } = useMusic();          
 
   useEffect(() => {
-    if (clearedGame) playJingle();                // fire once
+    if (clearedGame) playJingle();               
   }, [clearedGame, playJingle]);
 
   return (
-    /* dimmed backdrop + quick flash */
+    /* dimmed backdrop*/
     <motion.div
       initial={{ backgroundColor: 'rgba(0,0,0,0.0)' }}
       animate={{ backgroundColor: 'rgba(0,0,0,0.55)' }}
@@ -30,7 +29,7 @@ export default function FeedbackModal({
       transition={{ duration: 0.3 }}
       className="absolute inset-0 flex mt-80 items-center justify-center z-30"
     >
-      {/* pixel card */}
+      {/* card */}
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1.15 }}

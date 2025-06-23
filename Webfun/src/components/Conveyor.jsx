@@ -7,31 +7,19 @@ const baseSpeed = 100;
 
 export default function Conveyor({onComplete}) {
   const { state } = useGame();
-  const { fruits, level } = state;              // [{ name, count }]
-  //const beltRef = useRef(null);
+  const { fruits, level } = state; 
   const wrapperRef = useRef(null);
   const rowRef     = useRef(null);
-
-  /* Build a flat array like ['kiwi','kiwi','grape',...] for mapping */
 
   const rawQueue = fruits.flatMap(f => Array(f.count).fill(f.name));
   const queue = level > 9 ? shuffle(rawQueue) : rawQueue;
 
-  /* ── Kick off CSS animation once the element mounts ───────────── 
-  useEffect(() => {
-    if (!beltRef.current) return;
-    /* duration shrinks as level rises -> faster belt 
-    const base = 10;                              // seconds level 1
-    const dur  = base ;       // Lv5 ≈ 2.6 s
-    beltRef.current.style.setProperty('--beltDur', `${dur}s`);
-  }, [level]);*/
-
   useLayoutEffect(() => {
     const wrapW = wrapperRef.current.offsetWidth;
     const rowW  = rowRef.current.offsetWidth;
-    const distance = wrapW + rowW;                       // px
-    const speed    = baseSpeed * (1 + level * 0.4);     // px/s
-    const dur      = distance / speed;                   // s
+    const distance = wrapW + rowW;                       
+    const speed    = baseSpeed * (1 + level * 0.4);     
+    const dur      = distance / speed;                  
     rowRef.current.style.setProperty('--beltDur', `${dur}s`);
   }, [level, state.fruits]);  // recalc if fruit list changes
 

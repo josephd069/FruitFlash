@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';          // tailwind import is here
+import './index.css';          
 import { HashRouter } from 'react-router-dom';
 import { GameProvider } from './GameProvider.jsx';
 import { MusicProvider } from './MusicProvider.jsx';

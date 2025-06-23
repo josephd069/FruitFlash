@@ -22,7 +22,6 @@ import victorySfx  from "./assets/audio/victory.mp3";
 const MusicCtx = createContext();
 export const useMusic = () => useContext(MusicCtx);
 
-/* final level threshold */
 const FINAL_LEVEL = 10;
 
 export function MusicProvider({ children }) {
@@ -33,10 +32,10 @@ export function MusicProvider({ children }) {
   const { state } = useGame();      // get current level
   const { level } = state;
 
-  /* muted flag (start true so autoplay passes) */
+  // muted flag (start true so autoplay passes) 
   const [muted, setMuted] = useState(true);
 
-  /* helper that obeys mute */
+  // helper that obeys mute
   const safePlay = (ref, { restart = false } = {}) => {
     if (!ref.current) return;
     ref.current.muted = muted;
@@ -50,20 +49,16 @@ export function MusicProvider({ children }) {
     ref.current.currentTime = 0;
   };
 
-  /* --------------------------------------------------------------
-     MAIN EFFECT — runs whenever route, level, or mute state changes
-  ----------------------------------------------------------------*/
+
   useEffect(() => {
     const path     = location.pathname;
     const inGame   = path.startsWith('/play');
     const bossNow  = inGame && level >= FINAL_LEVEL;
 
     if (bossNow) {
-        /* ---- BOSS THEME ONLY ---- */
-        safePause(audioMain);    // A. stop normal track
+        safePause(audioMain);    // stop normal track
         safePlay(audioBoss);     // play boss loop
     } else {
-        /* ---- MENU or NORMAL GAME ---- */
         safePause(audioBoss);    // ensure boss stops
         const wantedSrc = inGame ? gameMusic : menuMusic;
 
@@ -71,7 +66,7 @@ export function MusicProvider({ children }) {
             audioMain.current.src = wantedSrc;
             audioMain.current.currentTime = 0;
         }
-        safePlay(audioMain);     // B. will NOT run when bossNow=true
+        safePlay(audioMain);     
     }
 }, [location.pathname, level, muted]);
 
@@ -96,14 +91,12 @@ export function MusicProvider({ children }) {
   );
 }
 
-/* --------------------------------------------------------------
-   Floating speaker toggle (top-right)
-----------------------------------------------------------------*/
+// Speaker icon top right
 function SoundToggle() {
   const { muted, setMuted } = useMusic();
   const navigate = useNavigate();
 
-  /* reset to Home & un-mute if user long-presses (optional easter egg) */
+  //easter egg 
   function handleToggle() {
     setMuted(!muted);
   }
