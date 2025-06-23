@@ -11,6 +11,10 @@ import {
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
 } from '@heroicons/react/24/solid';
+import menuMusic   from "@/assets/audio/menu-music.mp3";
+import gameMusic   from "@/assets/audio/game-music2.ogg";
+import bossMusic   from "@/assets/audio/boss-music.mp3";
+import victorySfx  from "@/assets/audio/victory.mp3";
 
 /* --------------------------------------------------------------
    CONTEXT
@@ -61,9 +65,7 @@ export function MusicProvider({ children }) {
     } else {
         /* ---- MENU or NORMAL GAME ---- */
         safePause(audioBoss);    // ensure boss stops
-        const wantedSrc = inGame
-          ? import.meta.env.BASE_URL + 'audio/game-music2.ogg'
-          : import.meta.env.BASE_URL + 'audio/menu-music.mp3';
+        const wantedSrc = inGame ? gameMusic : menuMusic;
 
         if (audioMain.current?.src.endsWith(wantedSrc) === false) {
             audioMain.current.src = wantedSrc;
@@ -86,10 +88,8 @@ export function MusicProvider({ children }) {
   return (
     <MusicCtx.Provider value={{ muted, setMuted, playJingle }}>
       <audio ref={audioMain} loop autoPlay />
-      <audio ref={audioBoss}
-       src={import.meta.env.BASE_URL + 'audio/boss-music.mp3'} loop />
-      <audio ref={jingleRef}
-       src={import.meta.env.BASE_URL + 'audio/victory.mp3'} />
+      <audio ref={audioBoss} src={bossMusic} loop />
+      <audio ref={jingleRef} src={victorySfx} />
       {children}
       <SoundToggle />
     </MusicCtx.Provider>
