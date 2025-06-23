@@ -45,7 +45,8 @@ export default function FeedbackModal({
         {/* header */}
         {success ? (
           isLastLevel ? (
-            <h3 className="text-2xl text-yellow-400 drop-shadow-[0_4px_0_rgba(0,0,0,0.8)]">
+            <h3 className="text-2xl text-yellow-400 drop-shadow-[0_4px_0_rgba(0,0,0,0.8)]
+                            animate-[bounce_1.25s_infinite]">
               YOU&nbsp;WIN! 🎉
             </h3>
           ) : (
@@ -68,14 +69,15 @@ export default function FeedbackModal({
         {success ? (
           isLastLevel ? (
             <button
-              onClick={() => (window.location.href = '/')}
+              onClick={() => (window.location.href = '/FruitFlash/')}
               className="px-6 py-3 bg-yellow-300 border-4 border-black rounded-md
                          shadow-[inset_0_-4px_0_rgba(0,0,0,0.6)]
                        hover:shadow-[inset_0_-2px_0_rgba(0,0,0,0.6)]
                        transition-transform duration-150
-                       hover:scale-105 active:scale-100"
+                       hover:scale-105 active:scale-100
+                       "
             >
-              HOME
+              PLAY AGAIN
             </button>
           ) : (
             <button

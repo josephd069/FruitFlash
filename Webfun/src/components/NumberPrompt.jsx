@@ -49,7 +49,7 @@ export default function NumberPrompt() {
 
       {/* popping / sliding number */}
       <motion.div
-        initial={{ scale: 10, top: '17.5rem' }}
+        initial={{ scale: 7, top: '17.5rem' }}
         animate={controls}
         className="absolute left-1/2 -translate-x-1/2 z-50
                    font-pixel text-yellow-200 text-9xl drop-shadow select-none"
