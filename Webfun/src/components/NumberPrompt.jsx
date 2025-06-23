@@ -27,12 +27,12 @@ export default function NumberPrompt() {
       await Promise.all([
         overlay.start({
           opacity: 0,
-          transition: { duration: 0.6, ease: 'easeOut' }
+          transition: { duration: 1.2, ease: 'easeOut' }
         }),
         controls.start({
           top: '5rem',
           scale: 1,
-          transition: { duration: 0.6, ease: 'easeInOut' }
+          transition: { duration: 1.2, ease: 'easeInOut' }
         })
       ]);
     }

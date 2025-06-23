@@ -35,7 +35,7 @@ export default function FeedbackModal({
         initial={{ scale: 0 }}
         animate={{ scale: 1.15 }}
         exit={{ scale: 0 }}
-        transition={{ type: 'spring', stiffness: 1500, damping: 32 }}
+        transition={{ type: 'spring', stiffness: 1000, damping: 32 }}
         className={`
     bg-[#fafafa] text-black font-pixel w-80
     border-[4px] border-black rounded-lg

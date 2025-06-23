@@ -27,7 +27,7 @@ export default function GameScreen() {
   const [isCorrect, setIsCorrect] = useState(null);   // null | true | false
 
     /* per-question countdown */
-  const questionSeconds = 8;          // visible on HUD
+  const questionSeconds = 7;          // visible on HUD
   const [timer, setTimer] = useState(questionSeconds);
 
   /* ─── start first level on mount ───────────────────────────── */
