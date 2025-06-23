@@ -8,7 +8,6 @@ const initialState = {
   score: 0,
   targetCount: null,
   fruits: [],          // generated for current level
-  theme: 'fruits',     // easy switch to 'animals', etc.
 };
 
 function reducer(state, action) {
